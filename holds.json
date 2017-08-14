@@ -1,64 +1,29 @@
 {
-"holds":[
-{
-"name": "jug",
-"plural": "jugs"
-},
-{
-"name":"crimp",
-"plural":"crimps"
-},
-{
-"name": "sloper",
-"plural": "slopers"
-},
-{
-"name": "pinch",
-"plural": "pinches"
-},
-{
-"name": "side pull",
-"plural": "side pulls"
-},
-{
-"name": "undercling",
-"plural": "underclings"
-}
+	"holds":[
+	{ "name": "jug", "plural": "jugs" },
+	{ "name":"crimp", "plural":"crimps" },
+	{ "name": "sloper", "plural": "slopers" },
+	{ "name": "pinch", "plural": "pinches" }, 
+	{ "name": "side pull", "plural": "side pulls" },
+	{ "name": "undercling", "plural": "underclings" }
 ],
 "moves":[
-{
-"name": "heel hook",
-"plural":"heel hooks"
-},
-{
-"name": "toe hook",
-"plural":"toe hooks"
-},
-{
-"name": "kneebar",
-"plural":"kneebars"
-},
-{
-"name": "dyno",
-"plural":"dynos"
-},
-{
-"name": "deadpoint",
-"plural":"deadpoints"
-},
-{
-"name": "figure four",
-"plural":"figure fours"
-}
+	{ "name": "heel hook", "plural":"heel hooks" },
+	{ "name": "toe hook", "plural":"toe hooks" },
+	{ "name": "kneebar", "plural":"kneebars" },
+	{ "name": "dyno", "plural":"dynos" },
+	{ "name": "deadpoint", "plural":"deadpoints" },
+	{ "name": "figure four", "plural":"figure fours" }
 ],
 "walls":[
-"45",
-"roof",
-"left wall",
-"right wall"
+	"45",
+	"roof",
+	"left wall",
+	"right wall"
 ],
 "identifiers":[
-" at least ",
-" no more than ",
-" exactly "
+	" at least ",
+	" no more than ",
+	" exactly ",
+	""
 ]}
