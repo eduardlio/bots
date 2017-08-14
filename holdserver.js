@@ -18,6 +18,13 @@ fs.readFile('holds.json', 'utf8', (err, data) => {
 	obj.holds.forEach((item)=>{
 		console.log(item);
 	});
+	obj.moves.forEach((item)=>{
+		console.log(item);
+	});
+	obj.identifiers.forEach((item)=>{
+		console.log(item);
+	});
+
 });
 
 // gets a random hold from the json file
@@ -56,13 +63,12 @@ app.listen(80, function () {
 
 
 app.get('/*', function (req, res) {
-	req.on("data", (data)=>{
-		var jsonResponse = [];
-		jsonResponse.push({"text": "Make a " + grade + " climb\n"});
-		jsonResponse.push({
-			"text": "Using" + randomIdentifier() + num_holds+ " "+ + randomHold() + "\n"
-		});
-		jsonResponse.push({"text": "and" + randomIdentifier() + num_moves +" "+ randomMove()}); 
-		res.send(jsonResponse);
-	});
+	var jsonResponse = [];
+	jsonResponse.push({"text": "Make a " + grade + " climb\n"});
+	console.log("Make a " + grade + " climb\n");
+	jsonResponse.push({ "text": "Using" + randomIdentifier() + num_holds+ " " + randomHold() + "\n" });
+	console.log("Using" + randomIdentified() + num_holds + " "+ randomHold()+"\n");
+	jsonResponse.push({"text": "and" + randomIdentifier() + num_moves +" "+ randomMove()}); 
+	console.log("and" + randomIdentifier() + num_moves +" "+ randomMove());
+	res.send(jsonResponse);
 });
