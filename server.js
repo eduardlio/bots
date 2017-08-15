@@ -16,14 +16,14 @@ var iWhite = 0;
 fs.readFile('cards.json', 'utf8', (err, data) => {
     if (err) console.error(err);
     obj = JSON.parse(data);
-    console.log(JSON.stringify(obj));
     console.log("There are " + obj.blackCards.length + " black cards.");
     console.log("There are " + obj.whiteCards.length + " white cards.");
 });
 
 function randomBlack(){
+console.log("random Black start");
 	if(queue.length>=25){
-    	queue.shift();
+	queue.shift();
     }
     var randBlack = (Math.random() * obj.blackCards.length + 1).toFixed(0);
 
@@ -37,10 +37,11 @@ function randomBlack(){
 	}
 	console.log("queue: " + queue);
     console.log("queue length: "+ queue.length);
-    
+   console.log("random black end"); 
     return blackCard;
 }
 function processBlackCard(card){
+console.log('processing black card');
 	// push the card to the queue
 	queue.push(card.text);
 	var blackCardT = card.text;
@@ -51,10 +52,11 @@ function processBlackCard(card){
 	    return target.split(search).join(replacement);
 	};
 	card.text = blackCardT;
-	
+console.log('done processing blcak card');	
 }
 
 function randomWhites(){
+console.log("random white");
     var things = [];
     var count = 0;
     while (count<5){
@@ -63,6 +65,7 @@ function randomWhites(){
         things.push("\n" + thing.slice(0, thing.length));
         count++;
     }
+console.log("done randome white");
     return things;
 }
 
@@ -71,19 +74,12 @@ app.listen(80, function () {
 });
 
 app.get('/*', function (req, res) {
-	// var body = '';
-	// res.on("data", (data)=>{
-	// 	body+=data;
-	// });
-	// res.on("error", (e)=>{
-	// 	console.error(e);
-	// })
-	// res.on("end", ()=>{
-	// 	console.log("Body: " + body);
-	// })
     var jsonResponse = [];
+console.log("getting random pick thing ");
     var bRandom = randomBlack();
+console.log("deciding which word to use ('card vs cards')");
     var card = (bRandom.pick == 1 ? "card":"cards");
+console.log("random text");
     jsonResponse.push({"text": "Your black card is: " + bRandom.text + "\n" + ""});
     jsonResponse.push({"text": "You'll need " + bRandom.pick + " white "+card+" for this one"});
     jsonResponse.push({"text": "Your white cards are: " + randomWhites()});

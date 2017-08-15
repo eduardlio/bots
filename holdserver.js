@@ -34,7 +34,10 @@ function randomHold(){
 	num_holds= (Math.random() * 6 + 1).toFixed(0);
 
 	// which hold to use
-	var pos_hold = (Math.random()*obj.holds + 1).toFixed(0);
+	var pos_hold = (Math.random()*obj.holds.length + 1).toFixed(0);
+
+console.log('obj.holds: '+ obj.holds);
+console.log('obj.holds at ' + pos_hold + ': ' + obj.holds[pos_hold]);
 	var hold = (num_holds==1 ? obj.holds[pos_hold].name : obj.holds[pos_hold].plural);	
 	return hold;
 }
@@ -44,7 +47,7 @@ function randomMove(){
 	num_moves= (Math.random() * 6 + 1).toFixed(0);
 
 	// which move to have
-	var pos_move = (Math.random() * obj.moves + 1).toFixed(0);
+	var pos_move = (Math.random() * obj.moves.length + 1).toFixed(0);
 	var move = (num_moves==1 ? obj.moves[pos_move].name : obj.moves[pos_move].plural);
 	return move;
 }
@@ -67,7 +70,7 @@ app.get('/*', function (req, res) {
 	jsonResponse.push({"text": "Make a " + grade + " climb\n"});
 	console.log("Make a " + grade + " climb\n");
 	jsonResponse.push({ "text": "Using" + randomIdentifier() + num_holds+ " " + randomHold() + "\n" });
-	console.log("Using" + randomIdentified() + num_holds + " "+ randomHold()+"\n");
+	console.log("Using" + randomIdentifier() + num_holds + " "+ randomHold()+"\n");
 	jsonResponse.push({"text": "and" + randomIdentifier() + num_moves +" "+ randomMove()}); 
 	console.log("and" + randomIdentifier() + num_moves +" "+ randomMove());
 	res.send(jsonResponse);
